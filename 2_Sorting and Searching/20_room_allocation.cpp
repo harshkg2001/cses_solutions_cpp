@@ -23,18 +23,6 @@ int32_t main()
             else
                 r=mid;
         }
-
-        if(r==ans.size())
-        {
-            ans.push_back(v[i].second);
-            res[i]=r;
-        }
-        else
-        {
-            ans[l]=v[i].second;
-            res[i]=r;
-        }
-        
     }
 
     for(int i=0; i<ans.size(); i++)
