@@ -17,32 +17,25 @@ int32_t main()
     cin>>n;
     vector<int> v=input(n);
 
-    int val=0;
-    map<int, vector<int>> m;
+    vector<int> ans;
     for(int i=0; i<n; i++)
-        m[v[i]].push_back(i);
-
-    int x=m.size();
-    vector<int> a(x);
-
-    while(m.size())
     {
-        val+=1;
-        int i=0, prev=INT_MAX;
-        for(auto it=m.begin(); it!=m.end();)
+        int l=-1, r=ans.size();
+        while(l<(r-1))
         {
-            if(it->second[a[i]]<prev)
-            {
-                a[i]+=1;
-                prev=it->second[a[i]];
-            }
-            if(it->second.size()==a[i])
-                m.erase(it);
+            int mid=(l+r)/2;
+            if(ans[mid]<=v[i])
+                l=mid;
             else    
-                it++;
+                r=mid;
         }
+
+        if(r==ans.size())
+            ans.push_back(v[i]);
+        else    
+            ans[r]=v[i];
     }
 
-    cout<<val<<"\n";
+    cout<<ans.size()<<"\n";
     return 0;
 }
