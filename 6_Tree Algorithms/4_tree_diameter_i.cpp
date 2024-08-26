@@ -10,14 +10,15 @@ using namespace std;
 int32_t main()
 {
   fastio;
-  vector<vector<char>> v(8, vector<char>(8));
-  for(int i=0; i<8; i++)
+  int n;
+  cin>>n;
+  vector<vector<int>> g(n+1);
+  for(int i=0; i<n-1; i++)  
   {
-    for(int j=0; j<8; j++)
-      cin>>v[i][j];
+    int u, v;
+    cin>>u>>v;
+    g[v].push_back(u);
   }
-  vector<vector<int>> safe(8, vector<int>(8, 0));
 
-  int ans=0;
   return 0;
 }
